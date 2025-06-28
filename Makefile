@@ -1,11 +1,14 @@
 # Default board port
-DEFAULT_PORT = /dev/ttyUSB0
+DEFAULT_PORT = /dev/ttyACM0
 
 # Compiler and flags
 CC = avr-gcc
 OBJCOPY = avr-objcopy
 AVRDUDE = avrdude
 CFLAGS = -Os -DF_CPU=16000000UL -mmcu=atmega328p
+
+# Default target
+.DEFAULT_GOAL := upload
 
 # Targets
 all:
@@ -25,4 +28,4 @@ upload:
 
 # Clean up generated files
 clean:
-	rm -f *.hex *.o
+	rm -f *.hex *.o *.out *.elf $(basename $(notdir $(filename)))
