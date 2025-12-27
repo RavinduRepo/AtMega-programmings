@@ -23,6 +23,3 @@ int main(void) {
         prevState = currentState;
     }
 }
-
-
-
